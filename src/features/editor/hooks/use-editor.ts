@@ -1,9 +1,15 @@
 "use client";
 
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { fabric } from "fabric";
+import { useAutoResize } from "./use-auto-resize";
 
 export function useEditor() {
+  const [container, setContainer] = useState<HTMLDivElement | null>(null);
+  const [canvas, setCanvas] = useState<fabric.Canvas | null>(null);
+
+  useAutoResize({ container, canvas });
+
   const init = useCallback(
     ({
       initialCanvas,
@@ -41,6 +47,9 @@ export function useEditor() {
       initialCanvas.add(initialWorkspace);
       initialCanvas.centerObject(initialWorkspace);
       initialCanvas.clipPath = initialWorkspace;
+
+      setCanvas(initialCanvas);
+      setContainer(initialContainer);
 
       const testRect = new fabric.Rect({
         fill: "black",

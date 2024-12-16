@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { fabric } from "fabric";
 import { useEditor } from "../hooks/use-editor";
 
@@ -24,7 +24,7 @@ export default function Editor() {
 
   return (
     <div className="flex h-full flex-col">
-      <div ref={containerRef} className="bg-muted h-full flex-1">
+      <div ref={containerRef} className="h-full flex-1 bg-muted">
         <canvas ref={canvasRef} />
       </div>
     </div>
