@@ -26,6 +26,10 @@ export default function Editor() {
       initialContainer: containerRef.current!,
       initialCanvas: canvas,
     });
+
+    return () => {
+      canvas.dispose();
+    };
   }, [init]);
 
   const layout = { navbarHeight: "68px", toolbarHeight: "56px" };
