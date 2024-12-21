@@ -12,7 +12,7 @@ import Footer from "@/features/editor/components/footer";
 
 export default function Editor() {
   const containerRef = useRef<HTMLDivElement>(null);
-  const canvasRef = useRef(null);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
 
   const { init } = useEditor();
 
@@ -45,7 +45,7 @@ export default function Editor() {
           <Toolbar height={layout.toolbarHeight} />
           <div
             ref={containerRef}
-            className={`h-[calc(100%-${layout.navbarHeight}-${layout.toolbarHeight}] flex-1 bg-muted`}
+            className={`h-[calc(100%-${layout.navbarHeight}-${layout.toolbarHeight})] flex-1 bg-muted`}
           >
             <canvas ref={canvasRef} />
           </div>

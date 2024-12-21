@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function Toolbar({ height }: { height: string }) {
   return (
     <div
