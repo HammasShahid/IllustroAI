@@ -20,11 +20,9 @@ import { Separator } from "@/components/ui/separator";
 import Logo from "@/features/editor/components/logo";
 import Hint from "@/components/hint";
 
-export default function Navbar({ height }: { height: string }) {
+export default function Navbar() {
   return (
-    <nav
-      className={`flex h-[${height}] w-full items-center gap-x-8 border-b bg-white p-4 lg:pl-[34px]`}
-    >
+    <nav className="flex h-[68px] w-full items-center gap-x-8 border-b bg-white p-4 lg:pl-[34px]">
       <Logo />
       <div className="flex h-full w-full items-center gap-x-1">
         <DropdownMenu modal={false}>

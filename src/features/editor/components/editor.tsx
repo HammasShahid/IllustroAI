@@ -32,20 +32,16 @@ export default function Editor() {
     };
   }, [init]);
 
-  const layout = { navbarHeight: "68px", toolbarHeight: "56px" };
-
   return (
     <div className="flex h-full flex-col">
-      <Navbar height={layout.navbarHeight} />
-      <div
-        className={`absolute top-[${layout.navbarHeight}] flex h-[calc(100%-${layout.navbarHeight})] w-full`}
-      >
+      <Navbar />
+      <div className="absolute top-[68px] flex h-[calc(100%-68px)] w-full">
         <Sidebar />
         <main className="relative flex flex-1 flex-col overflow-auto bg-muted">
-          <Toolbar height={layout.toolbarHeight} />
+          <Toolbar />
           <div
             ref={containerRef}
-            className={`h-[calc(100%-${layout.navbarHeight}-${layout.toolbarHeight})] flex-1 bg-muted`}
+            className="h-[calc(100%-68px-56px)] flex-1 bg-muted"
           >
             <canvas ref={canvasRef} />
           </div>
