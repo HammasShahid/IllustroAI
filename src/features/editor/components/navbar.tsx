@@ -1,3 +1,5 @@
+import type { ActiveTool } from "@/features/editor/types";
+
 import {
   ChevronDown,
   Download,
@@ -20,7 +22,15 @@ import { Separator } from "@/components/ui/separator";
 import Logo from "@/features/editor/components/logo";
 import Hint from "@/components/hint";
 
-export default function Navbar() {
+interface NavbarProps {
+  activeTool: ActiveTool;
+  onChangeActiveTool: (tool: ActiveTool) => void;
+}
+
+export default function Navbar({
+  activeTool,
+  onChangeActiveTool,
+}: NavbarProps) {
   return (
     <nav className="flex h-[68px] w-full items-center gap-x-8 border-b bg-white p-4 lg:pl-[34px]">
       <Logo />
@@ -48,8 +58,14 @@ export default function Navbar() {
         </DropdownMenu>
 
         <Separator orientation="vertical" className="mx-2" />
+
         <Hint label="Select" side="bottom" sideOffset={10}>
-          <Button variant="ghost" size="icon" onClick={() => {}} className="">
+          <Button
+            variant="ghost"
+            size="icon"
+            onClick={() => onChangeActiveTool("select")}
+            className={activeTool === "select" ? "bg-muted" : ""}
+          >
             <MousePointerClick className="size-4" />
           </Button>
         </Hint>
