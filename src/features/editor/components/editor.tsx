@@ -19,7 +19,7 @@ export default function Editor() {
   const containerRef = useRef<HTMLDivElement>(null);
   const canvasRef = useRef<HTMLCanvasElement>(null);
 
-  const { init } = useEditor();
+  const { init, editor } = useEditor();
 
   const handleChangeActiveTool = useCallback(
     (tool: ActiveTool) => {
@@ -62,6 +62,7 @@ export default function Editor() {
         <ShapeSidebar
           activeTool={activeTool}
           onChangeActiveTool={handleChangeActiveTool}
+          editor={editor}
         />
         <main className="relative flex flex-1 flex-col overflow-auto bg-muted">
           <Toolbar />
